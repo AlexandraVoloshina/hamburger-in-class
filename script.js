@@ -1,25 +1,10 @@
-class Ingredients {
-  constructor(price, calories) {
-    this.price = price;
-    this.calories = calories;
-  }  
-}
-
-let SIZE_SMALL = new Ingredients(50, 20);
-let SIZE_BIG = new Ingredients(100, 40);
-let STUFFING_CHEESE = new Ingredients(10, 20);
-let STUFFING_SALATE = new Ingredients(20, 5);
-let TOPPING_POTETOES = new Ingredients(15, 10);
-let TOPPING_SAUCE = new Ingredients(15, 0);
-let TOPPING_MAYO = new Ingredients(20, 5);
-
-
 class Hamburger {
   constructor(size, stuffing) {
     this.size = size;
     this.stuffing = stuffing;
     this.topping = [];
   }
+
 
   addTopping(toppingItem){ 
     return this.topping.push(toppingItem);
@@ -39,12 +24,48 @@ class Hamburger {
 
 }
 
+Hamburger.SIZE_SMALL = {
+        price: 50,
+        calories: 20,
+};
 
-let hamburger = new Hamburger(SIZE_SMALL, STUFFING_CHEESE);
+Hamburger.SIZE_BIG = {
+        price: 100,
+        calories: 40,
+};
+
+Hamburger.STUFFING_CHEESE = {
+        price: 10,
+        calories: 20,
+};
+
+Hamburger.STUFFING_SALATE = {
+        price: 20,
+        calories: 5,
+};
+
+Hamburger.TOPPING_POTETOES = {
+        price: 15,
+        calories: 10,
+};
+
+Hamburger.TOPPING_SAUCE = {
+        price: 15,
+        calories: 0,
+};
+
+Hamburger.TOPPING_MAYO = {
+        price: 20,
+        calories: 5,
+};
+
+
+
+let hamburger = new Hamburger(Hamburger.SIZE_SMALL, Hamburger.STUFFING_CHEESE);
 console.log(hamburger);
-hamburger.addTopping(TOPPING_MAYO);
+hamburger.addTopping(Hamburger.TOPPING_MAYO);
 console.log("Calories: " + hamburger.calculateCalories());
 console.log("Price: " + hamburger.calculatePrice());
-hamburger.addTopping(TOPPING_SAUCE);
+hamburger.addTopping(Hamburger.TOPPING_SAUCE);
 console.log("Calories: " + hamburger.calculateCalories());
 console.log("Price: " + hamburger.calculatePrice());
